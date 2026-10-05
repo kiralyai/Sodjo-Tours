@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next"; import { locales, tours } from "@/lib/site-data";
+export default function sitemap(): MetadataRoute.Sitemap { const origin="https://vistours-suriname.grassy-charm-7826.chatgpt.site"; const pages=["","/tours","/sodjo-island","/about","/faq","/contact","/book","/privacy","/terms","/cancellation-policy",`/tours/${tours[0].slug}`]; return locales.flatMap(locale=>pages.map(page=>({url:`${origin}/${locale}${page}`,lastModified:new Date()}))); }
