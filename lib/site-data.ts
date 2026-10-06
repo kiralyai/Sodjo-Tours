@@ -2,7 +2,7 @@ export const locales = ["en", "nl"] as const;
 export type Locale = (typeof locales)[number];
 
 export const company = {
-  brandName: "Sodjo Tours",
+  brandName: "Fun Island Tours",
   email: "", // TODO: add launch contact email
   whatsapp: "", // TODO: add WhatsApp number with country code
   instagram: "",

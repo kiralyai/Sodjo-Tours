@@ -3,12 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vistours-suriname.grassy-charm-7826.chatgpt.site"),
-  title: "Sodjo Tours Suriname",
+  title: "Fun Island Tours Suriname",
   description: "Multi-day fishing expeditions on Suriname's Brokopondo Reservoir.",
-  applicationName: "Sodjo Tours",
+  applicationName: "Fun Island Tours",
   keywords: ["fishing Suriname", "Suriname fishing tour", "Brokopondo fishing", "Brokopondo fishing tour", "peacock bass Suriname", "toekanari fishing", "Suriname adventure tours", "Brokopondo tour", "fishing trip Suriname"],
-  openGraph: { type: "website", siteName: "Sodjo Tours", title: "Sodjo Tours | Brokopondo fishing expeditions", description: "Multi-day fishing expeditions on Suriname's Brokopondo Reservoir." },
-  twitter: { card: "summary", title: "Sodjo Tours", description: "Multi-day fishing expeditions on Suriname's Brokopondo Reservoir." },
+  openGraph: { type: "website", siteName: "Fun Island Tours", title: "Fun Island Tours | Brokopondo fishing expeditions", description: "Multi-day fishing expeditions on Suriname's Brokopondo Reservoir." },
+  twitter: { card: "summary", title: "Fun Island Tours", description: "Multi-day fishing expeditions on Suriname's Brokopondo Reservoir." },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
