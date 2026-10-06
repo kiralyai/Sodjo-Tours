@@ -9,7 +9,28 @@ export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
   const [open, setOpen] = useState(false);
   const links = [[t.nav.tours, "/tours"], [t.nav.experience, "/#experience"], [t.nav.island, "/sodjo-island"], [t.nav.about, "/about"], [t.nav.faq, "/faq"]];
   const message = locale === "nl" ? "Hallo Sodjo Tours, ik wil graag meer informatie over de Brokopondo-visexpeditie." : "Hi Sodjo Tours, I'd like more information about the Brokopondo Fishing Expedition.";
-  return <><header className="site-header"><div className="shell nav-inner"><Link className="brand" href={`/${locale}`}>Sodjo <span>Tours</span></Link><nav className="desktop-nav" aria-label="Main navigation">{links.map(([label, path]) => <Link key={path} href={`/${locale}${path}`}>{label}</Link>)}</nav><div className="nav-actions"><Link className="locale" href={`/${locale === "en" ? "nl" : "en"}`}>{locale === "en" ? "NL" : "EN"}</Link><a className="whatsapp-mini" href={whatsappUrl(message)} aria-label="Ask on WhatsApp"><MessageCircle size={18}/></a><Link className="button button-small" href={`/${locale}/book`}>{t.nav.book}</Link><button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open ? <X/> : <Menu/>}</button></div></div>{open && <nav className="mobile-nav shell">{links.map(([label,path]) => <Link onClick={() => setOpen(false)} key={path} href={`/${locale}${path}`}>{label}</Link>)}<Link onClick={() => setOpen(false)} className="button" href={`/${locale}/book`}>{t.nav.book}</Link></nav>}</header><a className="floating-whatsapp" href={whatsappUrl(message)} aria-label="Send a WhatsApp message"><MessageCircle size={21}/><span>WhatsApp</span></a></>;
+
+  return <>
+    <header className="site-header">
+      <div className="shell nav-inner">
+        <a className="brand" href={`/${locale}`}>Sodjo <span>Tours</span></a>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {links.map(([label, path]) => <a key={path} href={`/${locale}${path}`}>{label}</a>)}
+        </nav>
+        <div className="nav-actions">
+          <a className="locale" href={`/${locale === "en" ? "nl" : "en"}`}>{locale === "en" ? "NL" : "EN"}</a>
+          <a className="whatsapp-mini" href={whatsappUrl(message)} aria-label="Ask on WhatsApp"><MessageCircle size={18}/></a>
+          <a className="button button-small" href={`/${locale}/book`}>{t.nav.book}</a>
+          <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open ? <X/> : <Menu/>}</button>
+        </div>
+      </div>
+      {open && <nav className="mobile-nav shell">
+        {links.map(([label, path]) => <a onClick={() => setOpen(false)} key={path} href={`/${locale}${path}`}>{label}</a>)}
+        <a onClick={() => setOpen(false)} className="button" href={`/${locale}/book`}>{t.nav.book}</a>
+      </nav>}
+    </header>
+    <a className="floating-whatsapp" href={whatsappUrl(message)} aria-label="Send a WhatsApp message"><MessageCircle size={21}/><span>WhatsApp</span></a>
+  </>;
 }
 
 export function Footer({ locale }: { locale: Locale }) { const nl=locale==="nl"; return <footer className="footer"><div className="shell footer-grid"><div><div className="brand footer-brand">Sodjo <span>Tours</span></div><p>{nl ? "Suriname, verder dan de oever." : "Suriname, beyond the shore."}</p></div><div><p className="footer-label">{nl ? "Ontdek" : "Explore"}</p><Link href={`/${locale}/tours`}>{nl ? "Vistours" : "Fishing tours"}</Link><Link href={`/${locale}/sodjo-island`}>Sodjo Island</Link><Link href={`/${locale}/about`}>{nl ? "Over ons" : "About"}</Link></div><div><p className="footer-label">{nl ? "Informatie" : "Information"}</p><Link href={`/${locale}/faq`}>FAQ</Link><Link href={`/${locale}/contact`}>Contact</Link><Link href={`/${locale}/privacy`}>Privacy</Link></div><div><p className="footer-label">{nl ? "Voorwaarden" : "Policies"}</p><Link href={`/${locale}/terms`}>{nl ? "Voorwaarden" : "Terms"}</Link><Link href={`/${locale}/cancellation-policy`}>{nl ? "Annuleren" : "Cancellation Policy"}</Link><Link href={`/${locale === "en" ? "nl" : "en"}`}>{locale === "en" ? "Nederlands" : "English"}</Link></div></div><div className="shell footer-bottom">© {new Date().getFullYear()} Sodjo Tours <span>{nl ? "Gemaakt voor het water, het bos en de verhalen ertussen." : "Built for the water, the forest and the stories between."}</span></div></footer>; }
